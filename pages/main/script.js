@@ -156,3 +156,78 @@ const pets = [
     "parasites": ["lice", "fleas"]
   }
 ]
+
+const sliderBox = document.querySelector('.slider__inner');
+const rightBtn = document.querySelector('.slider__btn-rigth');
+const leftBtn = document.querySelector('.slider__btn-left');
+
+let widthSlider = sliderBox.offsetWidth; // init 990px
+const widthItem = 270;
+
+// function makeGap(width) {
+//   let margin = 20;
+//   let countItem = Math.floor(width / (270 + margin * 2));
+//   let w = countItem * widthItem;
+
+//   margin = (widthSlider - w) / 2;
+//   console.log(margin)
+//   return margin;
+// }
+
+// makeGap(widthSlider)
+
+
+window.addEventListener('resize', () => {
+  widthSlider = sliderBox.offsetWidth;
+  console.log(widthSlider);
+});
+
+let initSlideView = -720;
+sliderBox.style.translate = initSlideView + 'px';
+console.log(initSlideView)
+
+function nextSlide() {
+  initSlideView = initSlideView - 360;
+  if (initSlideView < -1800) {
+    initSlideView = 0;
+  }
+  sliderBox.style.translate = initSlideView + 'px';
+  console.log(initSlideView)
+}
+
+function prevSlide() {
+  initSlideView = initSlideView + 360;
+  if (initSlideView > 0) {
+    initSlideView = -1800;
+  }
+  sliderBox.style.translate = initSlideView + 'px';
+  console.log(initSlideView)
+}
+
+rightBtn.addEventListener('click', nextSlide);
+leftBtn.addEventListener('click', prevSlide)
+
+pets.map(el => {
+  const item = document.createElement('div');
+  item.classList.add('slider__item');
+
+  const img = document.createElement('img');
+  img.classList.add('pets__photo');
+  img.src = `../../assets/images/pets/${el.name}.png`;
+  img.alt = el.name;
+
+  const petName = document.createElement('div');
+  petName.classList.add('pets__name');
+  petName.textContent = el.name;
+
+  const button = document.createElement('button');
+  button.classList.add('pets__btn');
+  button.textContent = 'Learn more';
+
+  item.append(img);
+  item.append(petName);
+  item.append(button);
+
+  sliderBox.appendChild(item);
+})
+

@@ -286,6 +286,13 @@ a {
     font-family: Georgia, sans-serif;
     font-weight: 400;
     letter-spacing: 0.06em;
+    width: 100%;
+    margin: 0 auto; 
+}
+
+.pets__inner {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .slider {
@@ -293,6 +300,9 @@ a {
     display: flex;
     justify-content: center;
     gap: 53px;
+    max-width: 1280px;
+    margin: 0 auto;
+
 }
 
 .slider__btn-left {
@@ -347,20 +357,32 @@ a {
     border: 2px solid #FDDCC4;
 }
 
-.slider__inner {
-    /* margin-bottom: 15px; */
+.slider__box {
     width: 100%;
     max-width: 990px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    margin-bottom: 80px;
+
+}
+
+.slider__inner {
+    margin-bottom: 15px;
+    width: 100%;
+    /* max-width: 990px; */
     display: flex;
     justify-content: space-between;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
+    /* overflow-x: hidden; */
+    gap: 90px;
+    transition: all .7s ease-in-out;
 }
 
 .slider__item {
     flex-shrink: 0;
     /* margin: 0 10px; */
     border-radius: 9px;
-    width: 270px;
+    min-width: 270px;
     height: 435px;
     overflow: hidden;
     transition: all .5s ease;
@@ -635,9 +657,6 @@ a {
     .slider__inner {
         width: auto;
     }
-    /* .slider__item.disabled {
-        display: none;
-    } */
 
     .donation {
         height: auto;
@@ -795,6 +814,7 @@ a {
         max-width: 580px;
         display: flex;
         justify-content: space-between;
+        gap: 40px;
     }
     
     .slider__item {
@@ -1495,7 +1515,7 @@ a {
 .popup__photo {
     width: 500px;
     height: 100%;
-    background-image: url("../../assets/images/pets/pets-katrine.png");
+    background-image: url("../../assets/images/pets/Katrine.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
